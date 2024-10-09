@@ -80,7 +80,8 @@
   </default>
 
   <!-- modified from: https://github.com/google-deepmind/mujoco_menagerie/tree/main/unitree_a1 -->
-  <include file="a1_modified.xml" />
+  <!-- <include file="a1_modified.xml" /> -->
+  <include file="go1.xml" />
 
   <actuator>
     <general class="torque" name="FR_hip" joint="FR_hip_joint"/>
@@ -110,11 +111,11 @@
     <user name="Angmom" dim="3" user="0 0 0 .03" />
 
     <!-- estimator measurements -->
-    <framepos name="torso_pos" objtype="site" objname="torso" />
+    <!-- <framepos name="torso_pos" objtype="site" objname="torso" />
     <framepos name="FR_pos" objtype="site" objname="FR" />
     <framepos name="FL_pos" objtype="site" objname="FL" />
     <framepos name="RR_pos" objtype="site" objname="RR" />
-    <framepos name="RL_pos" objtype="site" objname="RL" />
+    <framepos name="RL_pos" objtype="site" objname="RL" /> -->
 
     <jointpos name="pos_FR_hip_joint" joint="FR_hip_joint" />
     <jointpos name="pos_FR_thigh_joint" joint="FR_thigh_joint" />
@@ -145,14 +146,14 @@
 
   <keyframe>
     <key name="home"
-         qpos="0 0 0.26
+         qpos="0 0 0.58
                1 0 0 0
                -0.000341931 0.0181576 -0.0268335
                0.00160968 0.0247957 -0.0270045
                0.00191398 -0.033048 -0.0675298
                -0.00199489 -0.0374747 -0.0681862"/>
     <key name="crouch"
-         qpos="-0.0501827 0.00107117 0.143925
+         qpos="-0.0501827 0.00107117 0.243925
                1 0 0 0
                0 0 -0.5
                0 0 -0.5
