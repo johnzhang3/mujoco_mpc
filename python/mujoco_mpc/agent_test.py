@@ -117,7 +117,7 @@ class AgentTest(parameterized.TestCase):
       state = agent.get_state()
       # Validate that the first three components of the initial qpos are defined
       # by the home keyframe.
-      home_qpos = np.array([0, 0, 0.26])
+      home_qpos = np.array([0, 0, 0.80])
       np.testing.assert_almost_equal(state.qpos[:home_qpos.shape[0]], home_qpos)
 
   @parameterized.parameters({"nominal": False}, {"nominal": True})
