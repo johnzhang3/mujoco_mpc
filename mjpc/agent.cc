@@ -131,8 +131,8 @@ void Agent::Initialize(const mjModel* model) {
 
   // status
   plan_enabled = false;
-  action_enabled = true;
-  visualize_enabled = false;
+  action_enabled = false;
+  visualize_enabled = true;
   allocate_enabled = true;
   plot_enabled = true;
 
