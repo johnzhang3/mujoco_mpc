@@ -76,7 +76,16 @@ void QuadrupedFlat::ResidualFn::Residual(const mjModel* model,
   // quadrupedal or bipedal height of torso over feet
   double* torso_pos = data->xipos + 3*torso_body_id_;
   bool is_biped = current_mode_ == kModeBiped;
-  double height_goal = is_biped ? kHeightBiped : kHeightQuadruped;
+  // double height_goal = is_biped ? kHeightBiped : kHeightQuadruped;
+  double height_goal;
+  if (current_mode_ == kModeBiped) {
+    double biped_type = parameters_[biped_type_param_id_];
+    int handstand = ReinterpretAsInt(biped_type) ? -1 : 1;
+    height_goal = (handstand == -1) ? kHeightBipedHand : kHeightBiped;
+  } else {
+    height_goal = kHeightQuadruped;
+  }
+
   if (current_mode_ == kModeScramble) {
     // disable height term in Scramble
     residual[counter++] = 0;
@@ -183,15 +192,19 @@ void QuadrupedFlat::ResidualFn::Residual(const mjModel* model,
     // loosen the "hands" in Biped mode
     bool handstand = ReinterpretAsInt(parameters_[biped_type_param_id_]);
     if (handstand) {
-      residual[counter + 4] *= 0.03;
-      residual[counter + 5] *= 0.03;
-      residual[counter + 10] *= 0.03;
-      residual[counter + 11] *= 0.03;
+      residual[counter + 6] *= 0.06;
+      residual[counter + 7] *= 0.06;
+      residual[counter + 8] *= 0.06;
+      residual[counter + 9] *= 0.06;
+      residual[counter + 10] *= 0.06;
+      residual[counter + 11] *= 0.06;
     } else {
+      residual[counter + 0] *= 0.6;
       residual[counter + 1] *= 0.03;
       residual[counter + 2] *= 0.03;
-      residual[counter + 7] *= 0.03;
-      residual[counter + 8] *= 0.03;
+      residual[counter + 3] *= 0.6;
+      residual[counter + 4] *= 0.03;
+      residual[counter + 5] *= 0.03;
     }
   }
   counter += model->nu;
