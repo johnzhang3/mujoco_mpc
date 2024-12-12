@@ -156,7 +156,7 @@ void Agent::Initialize(const mjModel* model) {
   // differentiable planning model
   // by default gradient-based planners use a differentiable model
   int gradient_planner = false;
-  if (planner_ == kGradientPlanner || planner_ == kILQGPlanner ||
+  if (planner_ == kGradientPlanner || planner_ == kILQGPlanner || planner_ == kShootingPlanner ||
       planner_ == kILQSPlanner) {
     gradient_planner = true;
   }
