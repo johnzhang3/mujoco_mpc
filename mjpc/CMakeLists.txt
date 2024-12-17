@@ -118,6 +118,13 @@ add_library(
   planners/ilqg/policy.cc
   planners/ilqg/policy.h
   planners/ilqg/settings.h
+  planners/shooting/planner.cc
+  planners/shooting/planner.h
+  planners/shooting/policy.cc
+  planners/shooting/policy.h
+  planners/shooting/settings.h
+  planners/shooting/gauss_newton.cc
+  planners/shooting/gauss_newton.h
   planners/ilqs/planner.cc
   planners/ilqs/planner.h
   estimators/batch.cc

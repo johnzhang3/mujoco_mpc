@@ -25,6 +25,7 @@
 #include "mjpc/planners/robust/robust_planner.h"
 #include "mjpc/planners/sample_gradient/planner.h"
 #include "mjpc/planners/sampling/planner.h"
+#include "mjpc/planners/shooting/planner.h"  // Include ShootingPlanner
 
 namespace mjpc {
 const char kPlannerNames[] =
@@ -34,7 +35,8 @@ const char kPlannerNames[] =
     "iLQS\n"
     "Robust Sampling\n"
     "Cross Entropy\n"
-    "Sample Gradient";
+    "Sample Gradient\n"
+    "Shooting";  // Add ShootingPlanner to the list
 
 // load all available planners
 std::vector<std::unique_ptr<mjpc::Planner>> LoadPlanners() {
@@ -49,6 +51,7 @@ std::vector<std::unique_ptr<mjpc::Planner>> LoadPlanners() {
       new RobustPlanner(std::make_unique<mjpc::SamplingPlanner>()));
   planners.emplace_back(new mjpc::CrossEntropyPlanner);
   planners.emplace_back(new mjpc::SampleGradientPlanner);
+  planners.emplace_back(new mjpc::ShootingPlanner);  // Add ShootingPlanner
   return planners;
 }
 
