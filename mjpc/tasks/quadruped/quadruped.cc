@@ -192,12 +192,12 @@ void QuadrupedFlat::ResidualFn::Residual(const mjModel* model,
     // loosen the "hands" in Biped mode
     bool handstand = ReinterpretAsInt(parameters_[biped_type_param_id_]);
     if (handstand) {
-      residual[counter + 6] *= 0.06;
-      residual[counter + 7] *= 0.06;
-      residual[counter + 8] *= 0.06;
-      residual[counter + 9] *= 0.06;
-      residual[counter + 10] *= 0.06;
-      residual[counter + 11] *= 0.06;
+      residual[counter + 6]  *= 0.10;
+      residual[counter + 7]  *= 0.10;
+      residual[counter + 8]  *= 0.10;
+      residual[counter + 9]  *= 0.10;
+      residual[counter + 10] *= 0.10;
+      residual[counter + 11] *= 0.10;
     } else {
       residual[counter + 0] *= 0.6;
       residual[counter + 1] *= 0.03;

@@ -122,7 +122,7 @@ class QuadrupedFlat : public Task {
     constexpr static double kHeightBiped = 0.6;       // meter
 
     // target torso height over feet when bipedal handstand
-    constexpr static double kHeightBipedHand = 0.4;    // meter
+    constexpr static double kHeightBipedHand = 0.5;    // meter
 
     // radius of foot geoms
     constexpr static double kFootRadius = 0.02;       // meter
@@ -137,7 +137,7 @@ class QuadrupedFlat : public Task {
     constexpr static double kCrouchHeight = 0.15;     // meter
 
     // flip: leap height, beginning of flight phase
-    constexpr static double kLeapHeight = 0.5;        // meter
+    constexpr static double kLeapHeight = 0.45;        // meter
 
     // flip: maximum height of flight phase
     constexpr static double kMaxHeight = 0.8;         // meter
